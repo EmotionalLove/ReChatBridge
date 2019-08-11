@@ -1,0 +1,6 @@
+name: "ReChatBridge"
+description: "bridge minecraft and discord uwu"
+authors:
+  - "Sasha"
+version: "2.0.0"
+mainClass: "me.someonelove.rechatbridge.Main"
