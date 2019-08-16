@@ -3,11 +3,14 @@ package me.someonelove.rechatbridge;
 import com.sasha.reminecraft.api.RePlugin;
 import com.sasha.reminecraft.logging.ILogger;
 import com.sasha.reminecraft.logging.LoggerBuilder;
+import me.someonelove.bettercommandsystem.CommandProcessor;
+import me.someonelove.rechatbridge.command.TickrateCommand;
+import me.someonelove.rechatbridge.util.TickrateUtil;
+import me.someonelove.rechatbridge.util.Util;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.hooks.AnnotatedEventManager;
-import sun.jvm.hotspot.CommandProcessor;
 
 import javax.security.auth.login.LoginException;
 
@@ -16,6 +19,8 @@ public class Main extends RePlugin {
     public static ILogger logger = LoggerBuilder.buildProperLogger("ReChatBridge");
     public static JDA discord;
     public static ReChatBridgeConfig config = new ReChatBridgeConfig();
+
+    public static CommandProcessor commandProcessor = new CommandProcessor(";");
 
     @Override
     public void onPluginInit() {
@@ -38,12 +43,11 @@ public class Main extends RePlugin {
 
     @Override
     public void onPluginEnable() {
-
+        TickrateUtil.INSTANCE.reset();
     }
 
     @Override
     public void onPluginDisable() {
-
     }
 
     @Override
@@ -53,7 +57,7 @@ public class Main extends RePlugin {
 
     @Override
     public void registerCommands() {
-
+        commandProcessor.registerCommand(new TickrateCommand());
     }
 
     @Override

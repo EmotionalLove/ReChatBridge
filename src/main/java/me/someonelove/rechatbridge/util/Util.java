@@ -1,6 +1,11 @@
-package me.someonelove.rechatbridge;
+package me.someonelove.rechatbridge.util;
 
+import me.someonelove.rechatbridge.Main;
+import me.someonelove.rechatbridge.ReChatBridgeConfig;
 import net.dv8tion.jda.core.entities.Message;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class Util {
 
@@ -29,6 +34,20 @@ public class Util {
                 .replace("[name]", message.getAuthor().getName())
                 .replace("[discrim]", message.getAuthor().getDiscriminator())
                 .replace("[msg]", message.getContentDisplay());
+    }
+
+    public static float fround(float value, int places) {
+        if (places < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(value + "");
+        bd = bd.setScale(places, RoundingMode.HALF_UP);
+        return bd.floatValue();
+    }
+
+    public static float clamp(float bottom, float current, float max) {
+        if (current < bottom) return bottom;
+        if (current > max) return max;
+        return current;
     }
 
 }
