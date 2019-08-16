@@ -21,12 +21,12 @@ public class Util {
         return Main.config.discordOnlyChatsFormat
                 .replace("[nl]", "\n")
                 .replace("[name]", user)
-                .replace("[msg]", message);
+                .replace("[msg]", Main.config.filterDiscordInvites ? message.replace("discord.gg", "discord.invite") : message);
     }
     public static String formatDiscordAll(String message) {
         return Main.config.discordAllFormat
                 .replace("[nl]", "\n")
-                .replace("[msg]", message);
+                .replace("[msg]", Main.config.filterDiscordInvites ? message.replace("discord.gg", "discord.invite") : message);
     }
     public static String formatMinecraftChats(Message message) {
         return Main.config.minecraftFormat

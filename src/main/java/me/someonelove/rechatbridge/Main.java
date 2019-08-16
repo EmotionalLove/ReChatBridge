@@ -4,6 +4,7 @@ import com.sasha.reminecraft.api.RePlugin;
 import com.sasha.reminecraft.logging.ILogger;
 import com.sasha.reminecraft.logging.LoggerBuilder;
 import me.someonelove.bettercommandsystem.CommandProcessor;
+import me.someonelove.rechatbridge.command.TabCommand;
 import me.someonelove.rechatbridge.command.TickrateCommand;
 import me.someonelove.rechatbridge.util.TickrateUtil;
 import me.someonelove.rechatbridge.util.Util;
@@ -24,6 +25,7 @@ public class Main extends RePlugin {
 
     @Override
     public void onPluginInit() {
+        new TickrateUtil();
         if (!Util.configCheck(config)) {
             logger.logError("ReChatBridge couldn't start because some values in the configuration aren't filled in.");
             System.exit(1);
@@ -58,6 +60,7 @@ public class Main extends RePlugin {
     @Override
     public void registerCommands() {
         commandProcessor.registerCommand(new TickrateCommand());
+        commandProcessor.registerCommand(new TabCommand());
     }
 
     @Override

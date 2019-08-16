@@ -9,6 +9,10 @@ public class TickrateUtil {
     private int nextIndex = 0;
     public long timeLastTimeUpdate;
 
+    public TickrateUtil() {
+        INSTANCE = this;
+    }
+
     public float getTickRate() {
         float numTicks = 0.0F;
         float sumTickRates = 0.0F;

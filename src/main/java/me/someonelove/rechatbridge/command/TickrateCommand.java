@@ -20,7 +20,7 @@ public class TickrateCommand extends Command {
 
     private EmbedBuilder createEmbed() {
         EmbedBuilder builder = new EmbedBuilder();
-        builder.setTitle("Server tickrate information");
+        builder.setTitle("Server performance information");
         builder.addField("TPS", String.valueOf(TickrateUtil.INSTANCE.getTickRate()), true);
         builder.setColor(getColorForTPS(TickrateUtil.INSTANCE.getTickRate()));
         if (!TickrateUtil.INSTANCE.isServerResponding()) {

@@ -13,6 +13,7 @@ public class ReChatBridgeConfig extends Configuration {
     @ConfigSetting public boolean isBotAccount = true;
     @ConfigSetting public boolean blockCommands = true;
     @ConfigSetting public boolean sendOnlyChats = false;
+    @ConfigSetting public boolean filterDiscordInvites = true;
     @ConfigSetting public String discordOnlyChatsFormat = "```xml[nl]<[name]> [msg][nl]```";
     @ConfigSetting public String discordAllFormat = "```xml[nl][msg][nl]```";
     @ConfigSetting public String minecraftFormat = "> [name]#[discrim] > [msg]";
